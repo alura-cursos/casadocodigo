@@ -36,7 +36,7 @@ public class HomeController {
 	private UsuarioDAO usuarioDao;
 	
 	@RequestMapping("/")
-	@Cacheable(value="produtosHome")
+	//@Cacheable(value="produtosHome")
 	public ModelAndView index() {
 		List<Produto> produtos = produtoDao.listar();
 		ModelAndView modelAndView = new ModelAndView("home");
