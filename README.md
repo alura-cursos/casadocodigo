@@ -18,7 +18,7 @@ o profile" dentro das "Run Configurations..."
 	http://localhost:8080/casadocodigo
 
 4) Se preferir gerar o banco, seguem os comandos SQL para o banco MySQL:
-
+```SQL
 drop table if exists Produto;
 drop table if exists Produto_precos;
 drop table if exists Usuario_Role;
@@ -32,3 +32,4 @@ create table Usuario_Role (email varchar(255) not null, role_nome varchar(255) n
 alter table Produto_precos add constraint FK_hl4xdmygc7v2x607r4rbs6x3a foreign key (Produto_id) references Produto (id);
 alter table Usuario_Role add constraint FK_5nbp4m2sk65w2mq9rfn680cx2 foreign key (role_nome) references Role (nome);
 alter table Usuario_Role add constraint FK_4w45e3buitnd4f3ok8jdlrqkh foreign key (email) references Usuario (email);
+```
