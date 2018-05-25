@@ -1,23 +1,39 @@
-Testado com JRE8 e JRE9, Apache Tomcat 7,8,9
+## Ambiente 
 
-1) Para compilar e empacotar na linha de comando use:
+ Aplicação foi testado com JRE8 e JRE9 no Apache Tomcat 7, 8, 9
+ 
+## MySQL
 
-	mvn clean package
+Projeto usa MySQL e foi configurado para dropar e gerar as tables automaticamente ao iniciar (na classe JPAConfiguration). Caso queira gerar as tabelas manualmente, abaixo desse Readme tem os comando SQL.
 
-2a) Projeto sobe com o profile "dev" configurado através da classe ServletSpring no método onStartup(..)
+##Compilação
+
+ Para compilar immporte o projeto no Eclipse (*Import as Maven Projeto*) ou compile na linha de comando usando Maven:
+
+	mvn clean compile package
+
+## Profile DEV
+
+O projeto sobe automaticamente ativando o profile "dev". Isso foi configurado através da classe ServletSpringMVC no método onStartup(..).
 
 	servletContext.setInitParameter("spring.profiles.active", "dev");
 
-2b) Para não usar o profile "dev" basta comentar o InitParameter, mas ai é preciso adicionar no Tomcat 
-o profile" dentro das "Run Configurations..."
+Para não usar o profile "dev" basta comentar o InitParameter, no entanto é preciso um paramentro de inicialização no Tomcat (dentro das "Run Configurations...")
 
 	 "-Dspring.profiles.active=dev"
 
-3) Ao rodar pelo Eclipse e Tomcat acesse 
+## URL e Inicialização
+
+Ao rodar no Eclipse pelo  Tomcat acesse:
 
 	http://localhost:8080/casadocodigo
+	
+Execute a "URL Mágica" para cadastrar produtos e um usuario padrão (Login: admin@casadocodigo.com.br, Senha: 12345 )	
 
-4) Se preferir gerar o banco, seguem os comandos SQL para o banco MySQL:
+## SQL para geração das tables
+
+Se preferir gerar o banco, seguem os comandos SQL para o banco MySQL:
+
 ```SQL
 drop table if exists Produto;
 drop table if exists Produto_precos;
