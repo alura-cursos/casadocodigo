@@ -4,9 +4,9 @@
  
 ## MySQL
 
-Projeto usa MySQL e foi configurado para dropar e gerar as tables automaticamente ao iniciar (na classe JPAConfiguration). Caso queira gerar as tabelas manualmente, abaixo desse Readme tem os comando SQL.
+O projeto usa MySQL e deve existir já o banco `casadocodigo`. O JPA foi configurado para dropar e gerar as tables automaticamente ao iniciar (na classe `JPAConfiguration`). Caso queira gerar as tabelas manualmente, abaixo desse README tem os comandos SQL.
 
-##Compilação
+## Compilação
 
  Para compilar immporte o projeto no Eclipse (*Import as Maven Projeto*) ou compile na linha de comando usando Maven:
 
