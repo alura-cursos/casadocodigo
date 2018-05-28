@@ -28,7 +28,7 @@ Ao rodar no Eclipse pelo  Tomcat acesse:
 
 	http://localhost:8080/casadocodigo
 	
-Execute a "URL Mágica" para cadastrar produtos e um usuario padrão (Login: admin@casadocodigo.com.br, Senha: 12345 )	
+Execute a "URL Mágica" para cadastrar produtos e um usuario padrão (Login: admin@casadocodigo.com.br, Senha: 123456)	
 
 ## SQL para geração das tables
 
