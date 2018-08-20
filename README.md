@@ -10,7 +10,7 @@ O projeto usa MySQL e deve existir já o banco `casadocodigo` (sem senha). O JPA
 
  Para compilar immporte o projeto no Eclipse (*Import as Maven Projeto*) ou compile na linha de comando usando Maven:
 
-	mvn clean compile package
+	mvn clean package
 
 ## Profile DEV
 
