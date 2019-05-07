@@ -19,7 +19,7 @@ public class ProdutoDAO {
 
 	@PersistenceContext
 	private EntityManager manager;
-	
+
 	public void gravar(Produto produto) {
 		manager.persist(produto);
 	}
@@ -29,16 +29,25 @@ public class ProdutoDAO {
 				.getResultList();
 	}
 
+	// Filtrei no repositório para aproveitar o método já existente listar()
+	/*public List<Produto> listarPorData(LocalDate data) {
+		Calendar dataCalendar = Calendar.getInstance();
+		dataCalendar.set(data.getYear(), data.getMonthValue() - 1, data.getDayOfMonth());
+		return manager.createQuery("select p from Produto p where p.dataLancamento > :data", Produto.class)
+				.setParameter("data", dataCalendar, TemporalType.DATE).getResultList();
+	}*/
+
 	public Produto find(Integer id) {
-        return manager.createQuery("select distinct(p) from Produto p join fetch p.precos precos where p.id = :id", 
-        		Produto.class).setParameter("id", id)
-        		.getSingleResult();
+		return manager.createQuery("select distinct(p) from Produto p join fetch p.precos precos where p.id = :id",
+				Produto.class).setParameter("id", id).getSingleResult();
 	}
-	
-	public BigDecimal somaPrecosPorTipo(TipoPreco tipoPreco){
-	    TypedQuery<BigDecimal> query = manager.createQuery("select sum(preco.valor) from Produto p join p.precos preco "
-	    		+ "where preco.tipo = :tipoPreco", BigDecimal.class);
-	    query.setParameter("tipoPreco", tipoPreco);
-	    return query.getSingleResult();
+
+	public BigDecimal somaPrecosPorTipo(TipoPreco tipoPreco) {
+		TypedQuery<BigDecimal> query = manager.createQuery(
+				"select sum(preco.valor) from Produto p join p.precos preco " + "where preco.tipo = :tipoPreco",
+				BigDecimal.class);
+		query.setParameter("tipoPreco", tipoPreco);
+		return query.getSingleResult();
 	}
+
 }
